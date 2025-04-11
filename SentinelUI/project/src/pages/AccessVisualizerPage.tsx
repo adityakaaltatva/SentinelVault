@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useCallback, useMemo, useState } from 'react';
+import { useCallback } from 'react';
 import {
   ReactFlow,
   Background,
+  BackgroundVariant,
   Controls,
   MiniMap,
   useNodesState,
@@ -10,9 +11,9 @@ import {
   addEdge,
   Node,
   Edge,
-  Position,
   Connection,
 } from '@xyflow/react';
+
 import { Card } from '@/components/ui/card';
 
 export function AccessVisualizerPage() {
@@ -71,15 +72,19 @@ export function AccessVisualizerPage() {
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   const onConnect = useCallback(
-      (connection: Connection) =>
-        setEdges((eds) =>
-          addEdge(
-            { ...connection, id: `${connection.source}-${connection.target}`, label: 'new' },
-            eds
-          )
-        ),
-      [setEdges]
-    );
+    (connection: Connection) =>
+      setEdges((eds) =>
+        addEdge(
+          {
+            ...connection,
+            id: `${connection.source}-${connection.target}`,
+            label: 'new',
+          },
+          eds
+        )
+      ),
+    [setEdges]
+  );
 
   return (
     <div className="container mx-auto px-6 py-8">
@@ -99,7 +104,7 @@ export function AccessVisualizerPage() {
         >
           <MiniMap />
           <Controls />
-          <Background variant="lines" gap={16} size={1} />
+          <Background variant={BackgroundVariant.Dots} gap={16} size={1} />
         </ReactFlow>
       </Card>
     </div>
