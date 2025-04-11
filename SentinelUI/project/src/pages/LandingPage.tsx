@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -170,7 +169,7 @@ export function LandingPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {features.map((feature, index) => (
+              {features.map((feature) => (
                 <motion.div key={feature.title} variants={itemVariants}>
                   <Card className="p-6 h-full hover:shadow-lg transition-shadow">
                     <feature.icon className="h-12 w-12 text-primary mb-4" />

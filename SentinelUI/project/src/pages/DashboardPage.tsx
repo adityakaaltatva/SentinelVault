@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import {
@@ -43,7 +42,7 @@ const allStats = [
 
 export function DashboardPage() {
   const [statPage, setStatPage] = useState(0); // 0 = first 4, 1 = next 4, etc.
-  const [recentActivity, setRecentActivity] = useState<{ id: string; action: string; description: string; timestamp: string }[]>([]); // TODO: Populate from backend
+  const [recentActivity] = useState<{ id: string; action: string; description: string; timestamp: string }[]>([]); // TODO: Populate from backend
 
   const pageSize = 4;
   const totalPages = Math.ceil(allStats.length / pageSize);
